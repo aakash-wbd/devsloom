@@ -6,9 +6,11 @@ import {
   Box,
   Button,
   Container,
+  Drawer,
   Flex,
   Group,
   Image,
+  Stack,
   Text,
   useMantineTheme,
 } from "@mantine/core";
@@ -27,8 +29,6 @@ const NavLinks: React.FC<{ href: string; label: string }> = ({
   href = "",
   label = "",
 }) => {
-  const theme = useMantineTheme();
-
   return (
     <Anchor c="dark" component={Link} href={href} underline="never" size="lg">
       {label}
@@ -36,13 +36,14 @@ const NavLinks: React.FC<{ href: string; label: string }> = ({
   );
 };
 
-const AppBar = () => {
+const AppBar: React.FC<{ scrolled: boolean }> = ({ scrolled = false }) => {
   const theme = useMantineTheme();
   const [opened, { open, close }] = useDisclosure(false);
   const [isHover, setIsHover] = useState<boolean>(false);
 
   return (
     <Box className="w-full h-full bg-white/20 shadow-lg backdrop-blur-sm border border-white/30">
+      {scrolled && ""}
       <Container size="xl" h="100%">
         <Flex align="center" justify="space-between" h="100%">
           <Anchor component={Link} href="/" underline="never">
@@ -102,6 +103,14 @@ const AppBar = () => {
           </Group>
         </Flex>
       </Container>
+
+      <Drawer opened={opened} onClose={close} title="Menu">
+        <Stack>
+          {data?.map((item, i) => (
+            <NavLinks href={item?.path} label={item?.label} key={i} />
+          ))}
+        </Stack>
+      </Drawer>
     </Box>
   );
 };

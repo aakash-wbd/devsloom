@@ -10,7 +10,7 @@ const Process = () => {
   return (
     <Box w="100%">
       <Text mb="xs" fz={18} fw={500}>
-        What's Next
+        What&apos;s Next
       </Text>
       <Timeline radius="sm" active={-1} lineWidth={1} bulletSize={20}>
         {data?.map((item, i) => (

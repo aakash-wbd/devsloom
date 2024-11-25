@@ -6,6 +6,7 @@ import {
   FileButton,
   Flex,
   Group,
+  Image,
   Select,
   Text,
   Textarea,
@@ -19,7 +20,7 @@ const Form = () => {
   return (
     <Card withBorder w="100%">
       <Text mb="xs" fz={18} fw={500}>
-        Let's Work Together
+        Let&apos;s Work Together
       </Text>
       <form className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         <TextInput variant="filled" placeholder="Name" withAsterisk />
@@ -39,14 +40,14 @@ const Form = () => {
             }))}
             value={"971"}
             comboboxProps={{ width: 200, position: "bottom-start" }}
-            renderOption={({ option, checked }) => {
+            renderOption={({ option }) => {
               const country = countries.find(
                 (country) => country.phone === option.value
               );
               return (
                 <Group gap="xs">
                   {country && (
-                    <img
+                    <Image
                       src={`https://flagcdn.com/w20/${country.code.toLowerCase()}.png`}
                       alt={`${country.label} flag`}
                       style={{ width: 20, height: 15 }}
@@ -102,6 +103,11 @@ const Form = () => {
                 </Button>
               )}
             </FileButton>
+            {file && (
+              <Text size="sm" ta="center" mt="sm">
+                Picked file: {file.name}
+              </Text>
+            )}
 
             <Button size="xs" variant="light">
               Submit

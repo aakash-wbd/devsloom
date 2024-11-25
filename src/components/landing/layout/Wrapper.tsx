@@ -7,11 +7,15 @@ import AppBar from "./AppBar";
 import Footer from "./Footer";
 
 const Wrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const pinned = useHeadroom({ fixedAt: 60 });
+  const pinned = useHeadroom({ fixedAt: 120 });
   const [scrolled, setScrolled] = useState<boolean>(false);
 
   const scrollHandler = () => {
-    window.scrollY >= 60 ? setScrolled(true) : setScrolled(false);
+    if (window.scrollY >= 60) {
+      setScrolled(true);
+    } else {
+      setScrolled(false);
+    }
   };
 
   useEffect(() => {
@@ -20,17 +24,11 @@ const Wrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       window.removeEventListener("scroll", scrollHandler);
     };
   }, []);
+
   return (
-    <AppShell
-      header={{
-        // height: scrolled ? 60 : 140,
-        height: 60,
-        collapsed: !pinned,
-        offset: false,
-      }}
-    >
+    <AppShell header={{ height: 60, collapsed: !pinned, offset: false }}>
       <AppShell.Header bg="transparent" withBorder={false}>
-        <AppBar />
+        <AppBar scrolled={scrolled} />
       </AppShell.Header>
       <AppShell.Main>{children}</AppShell.Main>
       <AppShell.Footer pos="unset">

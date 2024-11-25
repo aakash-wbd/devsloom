@@ -25,6 +25,7 @@ const Location = () => {
                     fit="contain"
                     pos="absolute"
                     src={images.laptop.src}
+                    alt="image"
                   />
                 </Box>
               </Grid.Col>
@@ -83,7 +84,7 @@ const Location = () => {
             </Grid>
           </Grid.Col>
           <Grid.Col span={{ base: 12, lg: 6 }}>
-            <Image w="100%" h={500} src={images.map.src} data-aos="fade-down" />
+            <Image w="100%" h={500} src={images.map.src} data-aos="fade-down" alt="image" />
           </Grid.Col>
         </Grid>
       </Container>
