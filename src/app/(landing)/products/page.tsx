@@ -1,9 +1,7 @@
-const products = () => {
-  return (
-    <div className="w-full h-screen flex flex-col justify-center items-center">
-      <h1>Loading....</h1>
-    </div>
-  );
+import Product from "@/components/landing/Product";
+
+const page = () => {
+  return <Product />;
 };
 
-export default products;
+export default page;

@@ -1,9 +1,9 @@
 import { Box, Text, Title } from "@mantine/core";
 
 const Heading: React.FC<{
-  label: string;
-  text: string;
-  gradientText: string;
+  label?: string;
+  text?: string;
+  gradientText?: string;
 }> = ({ label, text, gradientText }) => {
   return (
     <Box mb="lg">

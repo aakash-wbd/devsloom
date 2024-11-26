@@ -43,6 +43,8 @@ const IdeaBtn = () => {
       radius="md"
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
+      component={Link}
+      href="/"
       leftSection={
         <Image
           src={!isHover ? images.bulbOff.src : images.bulbOn.src}
