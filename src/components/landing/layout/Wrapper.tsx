@@ -2,33 +2,27 @@
 
 import { AppShell } from "@mantine/core";
 import { useHeadroom } from "@mantine/hooks";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import AppBar from "./AppBar";
 import Footer from "./Footer";
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 const Wrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const pinned = useHeadroom({ fixedAt: 120 });
-  const [scrolled, setScrolled] = useState<boolean>(false);
-
-  const scrollHandler = () => {
-    if (window.scrollY >= 60) {
-      setScrolled(true);
-    } else {
-      setScrolled(false);
-    }
-  };
 
   useEffect(() => {
-    window.addEventListener("scroll", scrollHandler);
-    return () => {
-      window.removeEventListener("scroll", scrollHandler);
-    };
+    AOS.init({
+      offset: 20,
+    });
+    AOS.refresh();
   }, []);
 
   return (
     <AppShell header={{ height: 60, collapsed: !pinned, offset: false }}>
       <AppShell.Header bg="transparent" withBorder={false}>
-        <AppBar scrolled={scrolled} />
+        <AppBar />
       </AppShell.Header>
       <AppShell.Main>{children}</AppShell.Main>
       <AppShell.Footer pos="unset">

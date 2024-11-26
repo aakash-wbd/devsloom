@@ -18,11 +18,11 @@ const Form = () => {
   const [file, setFile] = useState<File | null>(null);
 
   return (
-    <Card withBorder w="100%">
+    <Card withBorder w="100%" data-aos="fade-down" data-aos-delay={200}>
       <Text mb="xs" fz={18} fw={500}>
         Let&apos;s Work Together
       </Text>
-      <form className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+      <form className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <TextInput variant="filled" placeholder="Name" withAsterisk />
         <TextInput variant="filled" placeholder="Email" withAsterisk />
         <TextInput variant="filled" placeholder="Company Name" withAsterisk />

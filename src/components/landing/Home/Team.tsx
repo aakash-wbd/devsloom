@@ -49,18 +49,23 @@ const Team = () => {
         <Stack>
           {formatData(data)?.map((team, t) => (
             <Flex
-              direction={{ base: "column", lg: "row" }}
+              direction={{ base: "column", sm: "row" }}
               align="center"
               justify="center"
               key={t}
             >
               {team?.map((item, i) => (
-                <Box key={i}>
+                <Box
+                  key={i}
+                  w={{ base: "100%", sm: "auto" }}
+                  data-aos="fade-up"
+                  data-aos-delay={(i + 2) * 100}
+                >
                   <Box
-                    w={{ base: "100%", lg: 150 }}
-                    h={{ base: 500, lg: i % 2 === 0 ? 520 : 500 }}
-                    mx={{ base: 0, lg: 5 }}
-                    my={{ base: 5, lg: 0 }}
+                    w={{ base: "100%", sm: 150 }}
+                    h={{ base: 500, sm: i % 2 === 0 ? 520 : 500 }}
+                    mx={{ base: 0, sm: 5 }}
+                    my={{ base: 5, sm: 0 }}
                     pos="relative"
                     className={`hover:lg:w-[300px] bg-cover bg-center rounded-md overflow-hidden cursor-pointer group transition-[width,filter] duration-500 lg:grayscale hover:lg:grayscale-0`}
                     style={{ backgroundImage: `url(${item?.avatar})` }}

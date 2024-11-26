@@ -1,3 +1,4 @@
+import AppLogo from "@/components/ui/AppLogo";
 import { images } from "@/constants/images";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import {
@@ -11,8 +12,6 @@ import {
   Group,
   Image,
   Stack,
-  Text,
-  useMantineTheme,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import Link from "next/link";
@@ -36,82 +35,69 @@ const NavLinks: React.FC<{ href: string; label: string }> = ({
   );
 };
 
-const AppBar: React.FC<{ scrolled: boolean }> = ({ scrolled = false }) => {
-  const theme = useMantineTheme();
-  const [opened, { open, close }] = useDisclosure(false);
+const IdeaBtn = () => {
   const [isHover, setIsHover] = useState<boolean>(false);
+  return (
+    <Button
+      bg="black"
+      radius="md"
+      onMouseEnter={() => setIsHover(true)}
+      onMouseLeave={() => setIsHover(false)}
+      leftSection={
+        <Image
+          src={!isHover ? images.bulbOff.src : images.bulbOn.src}
+          w={20}
+          h={20}
+          alt="icon"
+        />
+      }
+    >
+      I Have an Idea
+    </Button>
+  );
+};
+
+const AppBar = () => {
+  const [opened, { open, close }] = useDisclosure(false);
 
   return (
-    <Box className="w-full h-full bg-white/20 shadow-lg backdrop-blur-sm border border-white/30">
-      {scrolled && ""}
-      <Container size="xl" h="100%">
-        <Flex align="center" justify="space-between" h="100%">
-          <Anchor component={Link} href="/" underline="never">
-            <Group>
-              <Image
-                src={images.animatedLogo.src}
-                w={45}
-                h={45}
-                alt="DevsLoom_LOGO"
-              />
-              <Text
-                c="primary"
-                size="xl"
-                fz={26}
-                fw={900}
-                style={{ fontFamily: theme.headings.fontFamily }}
-              >
-                devsloom
-              </Text>
+    <>
+      <Box className="w-full h-full bg-white/20 shadow-lg backdrop-blur-sm border border-white/30">
+        <Container size="xl" h="100%">
+          <Flex align="center" justify="space-between" h="100%">
+            <AppLogo />
+            <Group gap="xl" visibleFrom="sm">
+              {data?.map((item, i) => (
+                <NavLinks href={item?.path} label={item?.label} key={i} />
+              ))}
             </Group>
-          </Anchor>
 
-          <Group gap="xl" visibleFrom="md">
-            {data?.map((item, i) => (
-              <NavLinks href={item?.path} label={item?.label} key={i} />
-            ))}
-          </Group>
-
-          <Group gap="xs">
-            <ActionIcon
-              size="lg"
-              variant="subtle"
-              hiddenFrom="md"
-              radius="xl"
-              onClick={open}
-            >
-              <Icon icon="gg:menu-left" fontSize={22} />
-            </ActionIcon>
-
-            <Button
-              bg="black"
-              radius="md"
-              onMouseEnter={() => setIsHover(true)}
-              onMouseLeave={() => setIsHover(false)}
-              leftSection={
-                <Icon
-                  icon={isHover ? "fxemoji:lightbulb" : "carbon:idea"}
-                  // style={{
-                  //   transition: "all 0.3s ease",
-                  // }}
-                  fontSize={22}
-                />
-              }
-            >
-              I Have an Idea
-            </Button>
-          </Group>
-        </Flex>
-      </Container>
-
-      <Drawer opened={opened} onClose={close} title="Menu">
+            <Flex>
+              <Box visibleFrom="sm">
+                <IdeaBtn />
+              </Box>
+              <ActionIcon
+                size="lg"
+                variant="subtle"
+                hiddenFrom="sm"
+                radius="xl"
+                onClick={open}
+              >
+                <Icon icon="gg:menu-left" fontSize={22} />
+              </ActionIcon>
+            </Flex>
+          </Flex>
+        </Container>
+      </Box>
+      <Drawer opened={opened} onClose={close} title={<AppLogo />}>
         <Stack>
           {data?.map((item, i) => (
             <NavLinks href={item?.path} label={item?.label} key={i} />
           ))}
+          <IdeaBtn />
         </Stack>
       </Drawer>
-    </Box>
+    </>
   );
 };
 

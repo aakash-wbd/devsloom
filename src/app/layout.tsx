@@ -59,8 +59,7 @@ export default function RootLayout({
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        {/* Updated to load script asynchronously */}
-        <script src="https://cdn.lordicon.com/libs/mssddfmo.js" async></script>
+        {/* <script src="https://cdn.lordicon.com/libs/mssddfmo.js" async></script> */}
 
         <ColorSchemeScript defaultColorScheme="light" />
       </head>

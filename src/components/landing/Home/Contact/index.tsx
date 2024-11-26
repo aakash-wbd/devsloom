@@ -14,10 +14,10 @@ const Contact = () => {
           gradientText="exceptional collaboration opportunities"
         />
         <Grid gutter={40} align="center" mt="xl">
-          <Grid.Col span={{ base: 12, lg: 6 }}>
+          <Grid.Col span={{ base: 12, md: 6 }}>
             <Form />
           </Grid.Col>
-          <Grid.Col span={{ base: 12, lg: 6 }}>
+          <Grid.Col span={{ base: 12, md: 6 }}>
             <Process />
           </Grid.Col>
         </Grid>

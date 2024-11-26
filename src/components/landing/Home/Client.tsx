@@ -7,7 +7,7 @@ import { Box, Container, Grid, Image } from "@mantine/core";
 type ClientData = {
   name: string;
   url: string;
-  image: string; 
+  image: string;
 };
 
 const data: ClientData[] = [
@@ -157,7 +157,7 @@ const Client = () => {
             <Carousel.Slide key={i}>
               <Grid>
                 {item.map((sItem, sI) => (
-                  <Grid.Col key={sI} span={3}>
+                  <Grid.Col key={sI} span={{ base: 6, sm: 4, md: 3 }}>
                     <Image
                       w="100%"
                       h={200}
@@ -165,6 +165,8 @@ const Client = () => {
                       alt={sItem.name}
                       fit="contain"
                       className="!grayscale hover:!grayscale-0 transition duration-300 ease-in-out"
+                      data-aos="fade-up"
+                      data-aos-delay={(sI + 2) * 100}
                     />
                   </Grid.Col>
                 ))}

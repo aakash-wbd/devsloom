@@ -8,7 +8,7 @@ const data: string[] = [
 
 const Process = () => {
   return (
-    <Box w="100%">
+    <Box w="100%" data-aos="fade-up" data-aos-delay={200}>
       <Text mb="xs" fz={18} fw={500}>
         What&apos;s Next
       </Text>

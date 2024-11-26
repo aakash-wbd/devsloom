@@ -18,7 +18,13 @@ const Newsletter = () => {
               <Text fz={32} mb="xs">
                 Join Our Newsletter
               </Text>
-              <Text size="sm" mb="xl" w="60%" mx="auto" c="dimmed">
+              <Text
+                size="sm"
+                mb="xl"
+                w={{ base: "100%", md: "60%" }}
+                mx="auto"
+                c="dimmed"
+              >
                 Subscribe to our newsletter and receive the latest news about
                 our products and services!
               </Text>

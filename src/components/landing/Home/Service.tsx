@@ -77,18 +77,20 @@ const Service = () => {
         />
         <Grid>
           {data.map((item, i) => (
-            <Grid.Col span={{ base: 12, md: 2, lg: 4 }} key={i}>
+            <Grid.Col span={{ base: 12, xs: 6, md: 4 }} key={i}>
               <Card
                 shadow="md"
                 className="rounded-xl !rounded-tr-sm !rounded-bl-sm group"
+                data-aos="fade-up"
+                data-aos-delay={100}
               >
-                <lord-icon
+                {/* <lord-icon
                   src={item?.icon}
                   trigger="loop"
                   colors="primary:#121212,secondary:#00ff00"
                   style={{ width: "80px", height: "80px" }}
                   className="group-hover:!pointer-events-auto"
-                />
+                /> */}
                 <Title order={4} fw={500}>
                   {item.label}
                 </Title>

@@ -33,7 +33,7 @@
   bottom: 0;
   left: 38%;
   position: absolute;
-  -webkit-animation: myfirst 30s linear infinite;
+  -webkit-animation: move 30s linear infinite;
   animation: myfirst 30s linear infinite;
 }
 
