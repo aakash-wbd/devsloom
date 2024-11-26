@@ -9,6 +9,9 @@ import Footer from "./Footer";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
+import { defineElement } from "lord-icon-element";
+import lottie from "lottie-web";
+
 const Wrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const pinned = useHeadroom({ fixedAt: 120 });
 
@@ -17,6 +20,10 @@ const Wrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       offset: 20,
     });
     AOS.refresh();
+
+    if (typeof window !== "undefined") {
+      defineElement(lottie.loadAnimation);
+    }
   }, []);
 
   return (

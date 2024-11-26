@@ -84,13 +84,13 @@ const Service = () => {
                 data-aos="fade-up"
                 data-aos-delay={100}
               >
-                {/* <lord-icon
+                <lord-icon
                   src={item?.icon}
                   trigger="loop"
                   colors="primary:#121212,secondary:#00ff00"
                   style={{ width: "80px", height: "80px" }}
                   className="group-hover:!pointer-events-auto"
-                /> */}
+                />
                 <Title order={4} fw={500}>
                   {item.label}
                 </Title>
