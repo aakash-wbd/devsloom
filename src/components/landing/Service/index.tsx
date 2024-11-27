@@ -6,8 +6,8 @@ const Service = () => {
   return (
     <>
       <Hero />
-      <Work />
       <Technology />
+      <Work />
     </>
   );
 };

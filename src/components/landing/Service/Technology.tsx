@@ -5,7 +5,7 @@ import { Box, Container, Image } from "@mantine/core";
 
 const Technology = () => {
   return (
-    <Box py={60}>
+    <Box py="xl">
       <Container size="xl">
         <Carousel
           slideSize="12.5%"
