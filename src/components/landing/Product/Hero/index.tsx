@@ -1,15 +1,7 @@
 "use client";
-import Heading from "@/components/ui/Heading";
 import { images } from "@/constants/images";
 import { Icon } from "@iconify/react/dist/iconify.js";
-import {
-  ActionIcon,
-  Box,
-  Button,
-  Container,
-  Group,
-  Image,
-} from "@mantine/core";
+import { ActionIcon, Box, Button, Group, Image } from "@mantine/core";
 import { useRef, useState } from "react";
 import "./style.css";
 
@@ -88,7 +80,7 @@ export const products: Product[] = [
   },
 ];
 
-const Products = () => {
+const Hero = () => {
   const carouselRef = useRef<HTMLDivElement | null>(null);
   const listRef = useRef<HTMLDivElement | null>(null);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -187,14 +179,6 @@ const Products = () => {
         </Box>
       </Box> */}
 
-      <Container size="xl">
-        <Heading
-          label="Our Products"
-          text="Discover innovation, quality, and "
-          gradientText="excellence in our products!"
-        />
-      </Container>
-
       <Box
         pos="relative"
         h="100vh"
@@ -266,4 +250,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default Hero;

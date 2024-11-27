@@ -19,6 +19,9 @@ import Product4 from "@/assets/products/4.png"
 import Product5 from "@/assets/products/5.png"
 import Product6 from "@/assets/products/6.png"
 
+import serviceBG from "@/assets/service-bg.jpg"
+import serviceIcon1 from "@/assets/service-icon-1.png"
+
 export const images = {
     animatedLogo,
 
@@ -41,4 +44,7 @@ export const images = {
 
     bulbOn,
     bulbOff,
+
+    serviceBG,
+    serviceIcon1,
 }

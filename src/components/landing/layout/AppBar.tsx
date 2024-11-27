@@ -15,6 +15,7 @@ import {
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const data = [
@@ -22,14 +23,24 @@ const data = [
   { label: "Services", path: "/services" },
   { label: "Products", path: "/products" },
   { label: "About", path: "/about" },
+  { label: "Career", path: "/career" },
 ];
 
-const NavLinks: React.FC<{ href: string; label: string }> = ({
+const NavLinks: React.FC<{ href: string; label: string; active: boolean }> = ({
   href = "",
   label = "",
+  active = false,
 }) => {
   return (
-    <Anchor c="dark" component={Link} href={href} underline="never" size="lg">
+    <Anchor
+      c={active ? "primary" : "dark"}
+      component={Link}
+      href={href}
+      underline="never"
+      size="lg"
+      fw={500}
+      fz={18}
+    >
       {label}
     </Anchor>
   );
@@ -60,6 +71,7 @@ const IdeaBtn = () => {
 };
 
 const AppBar = () => {
+  const pathname = usePathname();
   const [opened, { open, close }] = useDisclosure(false);
 
   return (
@@ -70,7 +82,12 @@ const AppBar = () => {
             <AppLogo />
             <Group gap="xl" visibleFrom="sm">
               {data?.map((item, i) => (
-                <NavLinks href={item?.path} label={item?.label} key={i} />
+                <NavLinks
+                  href={item?.path}
+                  label={item?.label}
+                  active={pathname === item?.path}
+                  key={i}
+                />
               ))}
             </Group>
 
@@ -94,7 +111,12 @@ const AppBar = () => {
       <Drawer opened={opened} onClose={close} title={<AppLogo />}>
         <Stack>
           {data?.map((item, i) => (
-            <NavLinks href={item?.path} label={item?.label} key={i} />
+            <NavLinks
+              href={item?.path}
+              label={item?.label}
+              active={pathname === item?.path}
+              key={i}
+            />
           ))}
           <IdeaBtn />
         </Stack>
