@@ -9,13 +9,13 @@ import Team from "./Team";
 const Home = () => {
   return (
     <>
-      {/* <Hero />
+      <Hero />
       <Service />
       <Team />
       <Client />
       <Location />
       <Contact />
-      <Newsletter /> */}
+      <Newsletter />
     </>
   );
 };
