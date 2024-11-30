@@ -1,7 +1,7 @@
 import Hero from "./Hero";
 import List from "./List";
 
-const Product = () => {
+const Products = () => {
   return (
     <>
       <Hero />
@@ -10,4 +10,4 @@ const Product = () => {
   );
 };
 
-export default Product;
+export default Products;

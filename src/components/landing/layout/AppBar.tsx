@@ -58,7 +58,7 @@ const IdeaBtn = () => {
       onMouseLeave={() => setIsHover(false)}
       component={Link}
       variant="light"
-      href="/"
+      href="/#contact"
       w="100%"
       leftSection={
         <Image

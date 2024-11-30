@@ -1,6 +1,25 @@
-import { NumberInput, PasswordInput, Textarea, TextInput } from "@mantine/core";
+import {
+  NumberInput,
+  NumberInputProps,
+  PasswordInput,
+  PasswordInputProps,
+  Textarea,
+  TextareaProps,
+  TextInput,
+  TextInputProps,
+} from "@mantine/core";
+import React from "react";
 
-const TextBox = ({
+type TextBoxProps = {
+  multiline?: boolean;
+  number?: boolean;
+  secret?: boolean;
+} & TextInputProps &
+  TextareaProps &
+  NumberInputProps &
+  PasswordInputProps;
+
+const TextBox: React.FC<TextBoxProps> = ({
   multiline = false,
   number = false,
   secret = false,
@@ -15,7 +34,7 @@ const TextBox = ({
   if (secret) {
     return <PasswordInput {...props} />;
   }
-  return <TextInput c="white" {...props} />;
+  return <TextInput {...props} />;
 };
 
 export default TextBox;

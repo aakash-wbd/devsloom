@@ -2,55 +2,46 @@ import { Icon } from "@iconify/react/dist/iconify.js";
 import { Button, ButtonProps } from "@mantine/core";
 import React from "react";
 
-type IProps = ButtonProps & {
-  add?: boolean;
-  create?: boolean;
-  close?: boolean;
-  label?: string;
+// Define custom props
+type AppButtonProps = {
+  actionType: "add" | "create" | "close";
+} & Omit<ButtonProps, "color" | "variant">; // Omit color and variant to use custom ones
+
+// Button configuration
+const buttonConfig = {
+  add: {
+    color: "primary",
+    icon: "lets-icons:add-round",
+    label: "Add New",
+    variant: "filled",
+  },
+  create: {
+    color: "blue",
+    icon: "prime:check-circle",
+    label: "Save",
+    variant: "light",
+  },
+  close: {
+    color: "red",
+    icon: "ic:round-close",
+    label: "Cancel",
+    variant: "outline",
+  },
 };
 
-const AppButton: React.FC<IProps> = ({
-  add = false,
-  create = false,
-  close = false,
-  label = "Save",
-  ...props
-}) => {
-  if (add) {
-    return (
-      <Button leftSection={<Icon icon="lets-icons:add-round" />} {...props}>
-        Add New
-      </Button>
-    );
-  }
-  if (create) {
-    return (
-      <Button
-        color="blue"
-        type="submit"
-        variant="light"
-        leftSection={<Icon icon="prime:check-circle" />}
-        {...props}
-      >
-        {label}
-      </Button>
-    );
-  }
-  if (close) {
-    return (
-      <Button
-        color="red"
-        variant="light"
-        leftSection={<Icon icon="ic:round-close" />}
-        {...props}
-      >
-        Cancel
-      </Button>
-    );
-  }
+// Functional component
+const AppButton: React.FC<AppButtonProps> = ({ actionType, ...props }) => {
+  const { color, icon, label, variant } = buttonConfig[actionType];
+
   return (
-    <Button variant="light" c="white" {...props}>
-      Save
+    <Button
+      color={color}
+      variant={variant}
+      leftSection={icon && <Icon icon={icon} />}
+      size="xs"
+      {...props} // Spread the remaining props, including onClick
+    >
+      {label}
     </Button>
   );
 };

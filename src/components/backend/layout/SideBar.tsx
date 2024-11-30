@@ -11,25 +11,21 @@ type NavItem = {
 const data: NavItem[] = [
   { label: "Dashboard", path: "/dashboard", icon: "", children: [] },
   {
-    label: "Manage Product",
+    label: "Manage",
     path: "",
     icon: "",
     children: [
       {
-        label: "Categories",
-        path: "/manage-products/categories",
-        icon: "",
-        children: [],
-      },
-      {
         label: "Products",
-        path: "/manage-products/products",
+        path: "/manage/products",
         icon: "",
         children: [],
       },
+      { label: "Services", path: "/manage/services", icon: "", children: [] },
+      { label: "Teams", path: "/manage/teams", icon: "", children: [] },
+      { label: "Brands", path: "/manage/brands", icon: "", children: [] },
     ],
   },
-  { label: "Services", path: "/services", icon: "", children: [] },
 ];
 
 const SideBar = () => {

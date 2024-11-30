@@ -1,10 +1,22 @@
 import { Modal } from "@mantine/core";
 
-const AppModal = ({ title = "", open = false, close = () => {}, children }) => {
+type IProps = {
+  title?: string;
+  opened: boolean;
+  onClose: () => void;
+  children: React.ReactNode;
+};
+
+const AppModal: React.FC<IProps> = ({
+  title,
+  opened = false,
+  onClose = () => {},
+  children,
+}) => {
   return (
     <Modal
-      opened={open}
-      onClose={close}
+      opened={opened}
+      onClose={onClose}
       title={title}
       size="lg"
       overlayProps={{

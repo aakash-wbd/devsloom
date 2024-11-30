@@ -1,4 +1,4 @@
-import Products from "@/components/landing/Products";
+import Products from "@/components/backend/Manage/Products/List";
 
 const page = () => {
   return <Products />;
