@@ -49,7 +49,7 @@ const Team = () => {
         <Stack>
           {formatData(data)?.map((team, t) => (
             <Flex
-              direction={{ base: "column", sm: "row" }}
+              direction={{ base: "column", md: "row" }}
               align="center"
               justify="center"
               key={t}
@@ -57,7 +57,7 @@ const Team = () => {
               {team?.map((item, i) => (
                 <Box
                   key={i}
-                  w={{ base: "100%", sm: "auto" }}
+                  w={{ base: "100%", md: "auto" }}
                   data-aos="fade-up"
                   data-aos-delay={(i + 2) * 100}
                 >

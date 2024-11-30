@@ -6,10 +6,11 @@ import {
   Anchor,
   Box,
   Button,
+  Center,
   Container,
   Drawer,
   Flex,
-  Group,
+  Grid,
   Image,
   Stack,
 } from "@mantine/core";
@@ -51,11 +52,14 @@ const IdeaBtn = () => {
   return (
     <Button
       bg="black"
-      radius="md"
+      c="white"
+      radius="sm"
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
       component={Link}
+      variant="light"
       href="/"
+      w="100%"
       leftSection={
         <Image
           src={!isHover ? images.bulbOff.src : images.bulbOn.src}
@@ -76,37 +80,52 @@ const AppBar = () => {
 
   return (
     <>
-      <Box className="w-full h-full bg-white/20 shadow-lg backdrop-blur-sm border border-white/30">
-        <Container size="xl" h="100%">
-          <Flex align="center" justify="space-between" h="100%">
-            <AppLogo />
-            <Group gap="xl" visibleFrom="sm">
-              {data?.map((item, i) => (
-                <NavLinks
-                  href={item?.path}
-                  label={item?.label}
-                  active={pathname === item?.path}
-                  key={i}
-                />
-              ))}
-            </Group>
-
-            <Flex>
-              <Box visibleFrom="sm">
-                <IdeaBtn />
-              </Box>
-              <ActionIcon
-                size="lg"
-                variant="subtle"
-                hiddenFrom="sm"
-                radius="xl"
-                onClick={open}
-              >
-                <Icon icon="gg:menu-left" fontSize={22} />
-              </ActionIcon>
-            </Flex>
-          </Flex>
-        </Container>
+      <Box
+        w="100%"
+        h="100%"
+        className="bg-white/20 shadow-md backdrop-blur-sm border border-white/30"
+      >
+        <Center h="100%">
+          <Container size="xl" w="100%">
+            <Grid align="center">
+              <Grid.Col span={{ base: 6, sm: 2 }}>
+                <AppLogo />
+              </Grid.Col>
+              <Grid.Col span={8} visibleFrom="sm">
+                <Flex
+                  align="center"
+                  justify="center"
+                  gap={{ base: "md", lg: "xl" }}
+                >
+                  {data?.map((item, i) => (
+                    <NavLinks
+                      href={item?.path}
+                      label={item?.label}
+                      active={pathname === item?.path}
+                      key={i}
+                    />
+                  ))}
+                </Flex>
+              </Grid.Col>
+              <Grid.Col span={{ base: 6, sm: 2 }}>
+                <Flex align="center" justify="end">
+                  <Box visibleFrom="sm">
+                    <IdeaBtn />
+                  </Box>
+                  <ActionIcon
+                    size="lg"
+                    variant="subtle"
+                    hiddenFrom="sm"
+                    radius="xl"
+                    onClick={open}
+                  >
+                    <Icon icon="gg:menu-left" fontSize={22} />
+                  </ActionIcon>
+                </Flex>
+              </Grid.Col>
+            </Grid>
+          </Container>
+        </Center>
       </Box>
       <Drawer opened={opened} onClose={close} title={<AppLogo />}>
         <Stack>

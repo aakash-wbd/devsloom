@@ -4,11 +4,10 @@ import Heading from "@/components/ui/Heading";
 import {
   Anchor,
   Box,
-  Button,
   Container,
   Grid,
-  Group,
   Image,
+  SegmentedControl,
   Text,
   Title,
 } from "@mantine/core";
@@ -18,6 +17,7 @@ import { useState } from "react";
 const List = () => {
   const [categories] = useState(["all", "marketing", "development", "app"]);
   const [selectedCategory, setSelectedCategory] = useState("all");
+
   const [data] = useState([
     {
       title: "Content Writing",
@@ -55,6 +55,7 @@ const List = () => {
     selectedCategory === "all"
       ? data
       : data.filter((item) => item.category === selectedCategory);
+
   return (
     <Box py={100}>
       <Container size="xl">
@@ -64,24 +65,21 @@ const List = () => {
           gradientText="impactful client success"
         />
 
-        <Group justify="center" mb="xl">
-          {categories.map((item, i) => (
-            <Button
-              key={i}
-              size="sm"
-              variant={selectedCategory === item ? "filled" : "outline"}
-              onClick={() => setSelectedCategory(item)}
-              className="!capitalize"
-            >
-              {item}
-            </Button>
-          ))}
-        </Group>
+        <Box ta="center" mb="xl">
+          <SegmentedControl
+            data={categories.map((item) => ({
+              label: item?.toUpperCase(),
+              value: item,
+            }))}
+            value={selectedCategory}
+            onChange={(value: string) => setSelectedCategory(value)}
+          />
+        </Box>
 
         <Grid>
           {filteredData.map((item, i) => (
             <Grid.Col span={{ base: 12, xs: 6, md: 4 }} key={i}>
-              <Anchor component={Link} href="/product">
+              <Anchor component={Link} href={`/products/${i}`}>
                 <Box
                   data-aos="fade-up"
                   w="100%"
@@ -107,9 +105,6 @@ const List = () => {
                     >
                       {item.category}
                     </Text>
-                    {/* <ActionIcon variant="light">
-                    <Icon icon="flowbite:eye-outline" color="white" />
-                  </ActionIcon> */}
                   </div>
                 </Box>
               </Anchor>
