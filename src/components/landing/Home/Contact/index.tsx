@@ -6,7 +6,7 @@ import Process from "./Process";
 
 const Contact = () => {
   return (
-    <Box py={100}>
+    <Box py={100} id="contact">
       <Container size="xl">
         <Heading
           label="Contact with US"

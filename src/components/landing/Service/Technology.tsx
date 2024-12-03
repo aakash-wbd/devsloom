@@ -2,8 +2,12 @@
 
 import { Carousel } from "@mantine/carousel";
 import { Box, Container, Image } from "@mantine/core";
+import Autoplay from "embla-carousel-autoplay";
+import { useRef } from "react";
 
 const Technology = () => {
+  const autoplay = useRef(Autoplay({ delay: 2000 }));
+
   return (
     <Box py="xl">
       <Container size="xl">
@@ -13,6 +17,10 @@ const Technology = () => {
           loop
           align="center"
           slidesToScroll={8}
+          plugins={[autoplay.current]}
+          onMouseEnter={autoplay.current.stop}
+          onMouseLeave={autoplay.current.reset}
+          withControls={false}
         >
           {Array(20)
             .fill(1)
@@ -23,6 +31,8 @@ const Technology = () => {
                   h={80}
                   src="https://placehold.co/600x400?text=Placeholder"
                   alt="technology_logo"
+                  data-aos="fade-down"
+                  data-aos-delay={100}
                 />
               </Carousel.Slide>
             ))}

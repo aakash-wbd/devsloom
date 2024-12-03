@@ -12,7 +12,7 @@ import {
 
 const Hero = () => {
   return (
-    <Box w="100%" h="80vh" bg="#E0F5FE" pos="relative">
+    <Box w="100%" h="100vh" bg="#E0F5FE" pos="relative">
       <Center h="100%">
         <Container size="xl">
           <Grid align="center">

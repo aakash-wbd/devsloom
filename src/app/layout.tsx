@@ -64,7 +64,10 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <ColorSchemeScript defaultColorScheme="light" />
       </head>
-      <body suppressHydrationWarning={true} className="antialiased">
+      <body
+        suppressHydrationWarning={true}
+        className="antialiased scroll-smooth"
+      >
         <MantineProvider theme={theme} defaultColorScheme="light">
           {children}
         </MantineProvider>

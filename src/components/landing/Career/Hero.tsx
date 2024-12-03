@@ -52,7 +52,7 @@ const Hero = () => {
                 business growth to new heights.
               </Text>
             </Grid.Col>
-            <Grid.Col span={{ base: 12, sm: 6 }}>
+            <Grid.Col span={{ base: 12, sm: 6 }} visibleFrom="md">
               <Image
                 w={500}
                 h={500}

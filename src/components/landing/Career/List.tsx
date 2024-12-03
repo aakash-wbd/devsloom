@@ -13,6 +13,7 @@ import {
   Stack,
   Text,
 } from "@mantine/core";
+import Link from "next/link";
 
 const List = () => {
   return (
@@ -31,7 +32,7 @@ const List = () => {
               <Card radius="md" shadow="md" withBorder key={i}>
                 <Card.Section inheritPadding p="lg">
                   <Grid align="center">
-                    <Grid.Col span={6}>
+                    <Grid.Col span={{ base: 12, lg: 6 }}>
                       <Text size="lg" mb="xs">
                         UX Researcher
                       </Text>
@@ -50,14 +51,23 @@ const List = () => {
                         </Group>
                       </Group>
                     </Grid.Col>
-                    <Grid.Col span={3}>
+                    <Grid.Col span={{ base: 12, lg: 3 }}>
                       <Text size="lg" mb="xs">
                         2
                       </Text>
                       <Text c="dimmed">No of vacancies</Text>
                     </Grid.Col>
-                    <Grid.Col span={3} ta="end">
-                      <Button size="xs" mb="xs" variant="light">
+                    <Grid.Col
+                      span={{ base: 12, lg: 3 }}
+                      ta={{ base: "start", lg: "end" }}
+                    >
+                      <Button
+                        size="xs"
+                        mb="xs"
+                        variant="light"
+                        component={Link}
+                        href={`/career/${i}`}
+                      >
                         Apply Now
                       </Button>
                       <Text c="dimmed"> Deadline: 01 Jan, 2030</Text>
