@@ -1,3 +1,4 @@
+import AppLogo from "@/components/ui/AppLogo";
 import { Box, NavLink } from "@mantine/core";
 import Link from "next/link";
 
@@ -26,32 +27,52 @@ const data: NavItem[] = [
       { label: "Brands", path: "/manage/brands", icon: "", children: [] },
     ],
   },
+  { label: "Subscribers", path: "/subscribers", icon: "", children: [] },
+  { label: "Query Contacts", path: "/query-contacts", icon: "", children: [] },
+  {
+    label: "App Settings",
+    path: "",
+    icon: "",
+    children: [
+      {
+        label: "Basic",
+        path: "/settings/basic",
+        icon: "",
+        children: [],
+      },
+      { label: "Pages", path: "/settings/pages", icon: "", children: [] },
+      { label: "Socials", path: "/settings/socials", icon: "", children: [] },
+    ],
+  },
 ];
 
 const SideBar = () => {
   return (
     <Box>
-      {data.map((item, i) =>
-        !item.children?.length ? (
-          <NavLink
-            key={i}
-            label={item.label}
-            component={Link}
-            href={item?.path}
-          />
-        ) : (
-          <NavLink key={i} label={item.label} childrenOffset={28}>
-            {item.children.map((sItem, sI) => (
-              <NavLink
-                key={sI}
-                label={sItem.label}
-                component={Link}
-                href={sItem?.path}
-              />
-            ))}
-          </NavLink>
-        )
-      )}
+      <AppLogo />
+      <Box my="xs">
+        {data.map((item, i) =>
+          !item.children?.length ? (
+            <NavLink
+              key={i}
+              label={item.label}
+              component={Link}
+              href={item?.path}
+            />
+          ) : (
+            <NavLink key={i} label={item.label} childrenOffset={28}>
+              {item.children.map((sItem, sI) => (
+                <NavLink
+                  key={sI}
+                  label={sItem.label}
+                  component={Link}
+                  href={sItem?.path}
+                />
+              ))}
+            </NavLink>
+          )
+        )}
+      </Box>
     </Box>
   );
 };

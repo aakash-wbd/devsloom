@@ -8,13 +8,14 @@ const Wrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
     <AppShell
       header={{ height: 60 }}
-      navbar={{ width: 250, breakpoint: "sm", collapsed: { mobile: true } }}
+      navbar={{ width: 200, breakpoint: "sm", collapsed: { mobile: true } }}
       p="xs"
+      layout="alt"
     >
       <AppShell.Header>
         <AppBar />
       </AppShell.Header>
-      <AppShell.Navbar>
+      <AppShell.Navbar p="xs">
         <SideBar />
       </AppShell.Navbar>
       <AppShell.Main>{children}</AppShell.Main>

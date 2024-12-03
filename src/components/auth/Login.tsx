@@ -22,7 +22,7 @@ const Login = () => {
               ta="end"
               c="dimmed"
               component={Link}
-              href="/reset"
+              href="/reset/request"
               size="sm"
             >
               Forget Password

@@ -6,6 +6,7 @@ import AppTable from "@/components/ui/AppTable";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { Badge, Button, Group, Table } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
+import Categories from "./Categories";
 import ProductForm from "./Form";
 
 const headers = [
@@ -27,6 +28,7 @@ const Products = () => {
         title="Products"
         actions={
           <Group>
+            <Categories />
             <Button
               color="teal"
               leftSection={<Icon icon="lets-icons:add-round" fontSize={20} />}
