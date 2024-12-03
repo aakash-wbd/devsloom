@@ -1,20 +1,26 @@
-import { Avatar, Box, Flex, Group, Image, Menu, Text } from "@mantine/core";
+import { Icon } from "@iconify/react/dist/iconify.js";
+import {
+  ActionIcon,
+  Avatar,
+  Box,
+  Flex,
+  Group,
+  Menu,
+  Text,
+} from "@mantine/core";
+import Link from "next/link";
 
-const AppBar = () => {
+const AppBar: React.FC<{ onOpen: () => void }> = ({ onOpen }) => {
   return (
     <Box h="100%" w="100%">
       <Flex align="center" justify="space-between" h="100%" w="100%" px="lg">
-        <Image
-          w={175}
-          h={40}
-          alt="logo"
-          src="https://placehold.co/175x40?text=175x40"
-          radius="xs"
-        />
+        <ActionIcon variant="default" hiddenFrom="md" onClick={onOpen}>
+          <Icon icon="material-symbols:menu-rounded" fontSize={22} />
+        </ActionIcon>
 
         <Menu shadow="md" withArrow position="bottom-end" trigger="hover">
           <Menu.Target>
-            <Group className="cursor-pointer">
+            <Group className="cursor-pointer" ml="auto">
               <Avatar radius="xs" />
               <Box>
                 <Text size="sm">John Doe</Text>
@@ -25,9 +31,22 @@ const AppBar = () => {
 
           <Menu.Dropdown>
             <Menu.Label>Account</Menu.Label>
-            <Menu.Item>My Account</Menu.Item>
-            <Menu.Item>Settings</Menu.Item>
-            <Menu.Item>Logout</Menu.Item>
+            <Menu.Item
+              leftSection={<Icon icon="material-symbols:settings" />}
+              component={Link}
+              href="/settings/basic"
+            >
+              Settings
+            </Menu.Item>
+            <Menu.Divider />
+            <Menu.Item
+              color="pink"
+              leftSection={<Icon icon="material-symbols:logout-rounded" />}
+              component={Link}
+              href="/login"
+            >
+              Logout
+            </Menu.Item>
           </Menu.Dropdown>
         </Menu>
       </Flex>

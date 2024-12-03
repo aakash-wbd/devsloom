@@ -1,5 +1,6 @@
 import AppLogo from "@/components/ui/AppLogo";
-import { Box, NavLink } from "@mantine/core";
+import { Icon } from "@iconify/react/dist/iconify.js";
+import { ActionIcon, Box, Group, NavLink } from "@mantine/core";
 import Link from "next/link";
 
 type NavItem = {
@@ -25,6 +26,7 @@ const data: NavItem[] = [
       { label: "Services", path: "/manage/services", icon: "", children: [] },
       { label: "Teams", path: "/manage/teams", icon: "", children: [] },
       { label: "Brands", path: "/manage/brands", icon: "", children: [] },
+      { label: "Careers", path: "/manage/careers", icon: "", children: [] },
     ],
   },
   { label: "Subscribers", path: "/subscribers", icon: "", children: [] },
@@ -32,7 +34,7 @@ const data: NavItem[] = [
   {
     label: "App Settings",
     path: "",
-    icon: "",
+    icon: "material-symbols:settings",
     children: [
       {
         label: "Basic",
@@ -42,14 +44,25 @@ const data: NavItem[] = [
       },
       { label: "Pages", path: "/settings/pages", icon: "", children: [] },
       { label: "Socials", path: "/settings/socials", icon: "", children: [] },
+      {
+        label: "Mail Config",
+        path: "/settings/mail-configuration",
+        icon: "",
+        children: [],
+      },
     ],
   },
 ];
 
-const SideBar = () => {
+const SideBar: React.FC<{ onClose: () => void }> = ({ onClose }) => {
   return (
     <Box>
-      <AppLogo />
+      <Group justify="space-between">
+        <AppLogo />
+        <ActionIcon variant="light" onClick={onClose} hiddenFrom="sm">
+          <Icon icon="material-symbols:close-rounded" />
+        </ActionIcon>
+      </Group>
       <Box my="xs">
         {data.map((item, i) =>
           !item.children?.length ? (
@@ -58,6 +71,7 @@ const SideBar = () => {
               label={item.label}
               component={Link}
               href={item?.path}
+              onClick={onClose}
             />
           ) : (
             <NavLink key={i} label={item.label} childrenOffset={28}>
@@ -67,6 +81,7 @@ const SideBar = () => {
                   label={sItem.label}
                   component={Link}
                   href={sItem?.path}
+                  onClick={onClose}
                 />
               ))}
             </NavLink>

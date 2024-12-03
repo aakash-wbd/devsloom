@@ -1,9 +1,7 @@
-import React from 'react'
+import Pages from "@/components/backend/Settings/Pages/List";
 
 const page = () => {
-  return (
-    <div>page</div>
-  )
-}
+  return <Pages />;
+};
 
-export default page
+export default page;

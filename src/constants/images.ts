@@ -1,5 +1,6 @@
 import bulbOff from '@/assets/bulb-off.svg'
 import bulbOn from '@/assets/bulb-on.svg'
+import favicon from '@/assets/favicon.png'
 import animatedLogo from '@/assets/logo_animated.gif'
 import no_data from '@/assets/no_data.svg'
 
@@ -26,6 +27,7 @@ import serviceIcon1 from "@/assets/service-icon-1.png"
 export const images = {
     no_data,
     animatedLogo,
+    favicon,
 
     team1,
     team2,
