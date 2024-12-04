@@ -25,6 +25,7 @@ const data = [
   { label: "Products", path: "/products" },
   { label: "Career", path: "/career" },
   { label: "About", path: "/about" },
+  { label: "Blog", path: "/blogs" },
 ];
 
 const NavLinks: React.FC<{ href: string; label: string; active: boolean }> = ({

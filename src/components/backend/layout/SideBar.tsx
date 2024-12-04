@@ -27,6 +27,7 @@ const data: NavItem[] = [
       { label: "Teams", path: "/manage/teams", icon: "", children: [] },
       { label: "Brands", path: "/manage/brands", icon: "", children: [] },
       { label: "Careers", path: "/manage/careers", icon: "", children: [] },
+      { label: "Blogs", path: "/manage/blogs", icon: "", children: [] },
     ],
   },
   { label: "Subscribers", path: "/subscribers", icon: "", children: [] },
