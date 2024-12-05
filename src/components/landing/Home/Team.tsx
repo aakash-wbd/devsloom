@@ -1,7 +1,7 @@
 "use client";
 
 import Heading from "@/components/ui/Heading";
-import { images } from "@/constants/images";
+import { teams } from "@/constants/teams";
 import { Box, Container, Flex, Stack, Text, Title } from "@mantine/core";
 
 type TeamMember = {
@@ -11,24 +11,6 @@ type TeamMember = {
 };
 
 const Team = () => {
-  const data = [
-    { name: "Adams", designation: "CO-Founder", avatar: images.team1.src },
-    { name: "Baker", designation: "CO-Founder", avatar: images.team2.src },
-    { name: "Clark", designation: "CO-Founder", avatar: images.team1.src },
-    { name: "Davis", designation: "CO-Founder", avatar: images.team1.src },
-    { name: "Evans", designation: "CO-Founder", avatar: images.team1.src },
-    { name: "Frank", designation: "CO-Founder", avatar: images.team1.src },
-    { name: "Ghosh", designation: "CO-Founder", avatar: images.team1.src },
-
-    { name: "Adams", designation: "CO-Founder", avatar: images.team1.src },
-    { name: "Baker", designation: "CO-Founder", avatar: images.team2.src },
-    { name: "Clark", designation: "CO-Founder", avatar: images.team1.src },
-    { name: "Davis", designation: "CO-Founder", avatar: images.team1.src },
-    { name: "Evans", designation: "CO-Founder", avatar: images.team1.src },
-    { name: "Frank", designation: "CO-Founder", avatar: images.team1.src },
-    { name: "Ghosh", designation: "CO-Founder", avatar: images.team1.src },
-  ];
-
   const formatData = (data: TeamMember[]) => {
     const payload: TeamMember[][] = [];
     for (let i = 0; i < data.length; i += 8) {
@@ -47,7 +29,7 @@ const Team = () => {
         />
 
         <Stack>
-          {formatData(data)?.map((team, t) => (
+          {formatData(teams)?.map((team, t) => (
             <Flex
               direction={{ base: "column", md: "row" }}
               align="center"
@@ -73,7 +55,7 @@ const Team = () => {
                     <Box
                       w="100%"
                       ta="center"
-                      bg="rgba(0,0,0,0.3)"
+                      bg="rgba(0,0,0,0.7)"
                       p="md"
                       pos="absolute"
                       className="bottom-0 lg:bottom-[-100%] lg:opacity-0 group-hover:lg:bottom-0 group-hover:lg:opacity-100 transition-all duration-500"

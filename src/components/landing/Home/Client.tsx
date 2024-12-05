@@ -1,137 +1,16 @@
 "use client";
 import Heading from "@/components/ui/Heading";
-import { images } from "@/constants/images";
+import { clients } from "@/constants/clients";
 import { Carousel } from "@mantine/carousel";
-import { Box, Container, Grid, Image } from "@mantine/core";
+import { Anchor, Box, Container, Flex, Image } from "@mantine/core";
+import Autoplay from "embla-carousel-autoplay";
+import { useRef } from "react";
 
 type ClientData = {
   name: string;
   url: string;
   image: string;
 };
-
-const data: ClientData[] = [
-  {
-    name: "Facebook",
-    url: "https://www.facebook.com",
-    image: images.brand1.src,
-  },
-  {
-    name: "Facebook",
-    url: "https://www.facebook.com",
-    image: images.brand2.src,
-  },
-  {
-    name: "Facebook",
-    url: "https://www.facebook.com",
-    image: images.brand3.src,
-  },
-  {
-    name: "Facebook",
-    url: "https://www.facebook.com",
-    image: images.brand1.src,
-  },
-  {
-    name: "Facebook",
-    url: "https://www.facebook.com",
-    image: images.brand2.src,
-  },
-  {
-    name: "Facebook",
-    url: "https://www.facebook.com",
-    image: images.brand3.src,
-  },
-  {
-    name: "Facebook",
-    url: "https://www.facebook.com",
-    image: images.brand1.src,
-  },
-  {
-    name: "Facebook",
-    url: "https://www.facebook.com",
-    image: images.brand2.src,
-  },
-  {
-    name: "Facebook",
-    url: "https://www.facebook.com",
-    image: images.brand3.src,
-  },
-  {
-    name: "Facebook",
-    url: "https://www.facebook.com",
-    image: images.brand1.src,
-  },
-  {
-    name: "Facebook",
-    url: "https://www.facebook.com",
-    image: images.brand2.src,
-  },
-  {
-    name: "Facebook",
-    url: "https://www.facebook.com",
-    image: images.brand3.src,
-  },
-  {
-    name: "Facebook",
-    url: "https://www.facebook.com",
-    image: images.brand1.src,
-  },
-  {
-    name: "Facebook",
-    url: "https://www.facebook.com",
-    image: images.brand2.src,
-  },
-  {
-    name: "Facebook",
-    url: "https://www.facebook.com",
-    image: images.brand3.src,
-  },
-  {
-    name: "Facebook",
-    url: "https://www.facebook.com",
-    image: images.brand1.src,
-  },
-  {
-    name: "Facebook",
-    url: "https://www.facebook.com",
-    image: images.brand2.src,
-  },
-  {
-    name: "Facebook",
-    url: "https://www.facebook.com",
-    image: images.brand3.src,
-  },
-  {
-    name: "Facebook",
-    url: "https://www.facebook.com",
-    image: images.brand1.src,
-  },
-  {
-    name: "Facebook",
-    url: "https://www.facebook.com",
-    image: images.brand2.src,
-  },
-  {
-    name: "Facebook",
-    url: "https://www.facebook.com",
-    image: images.brand3.src,
-  },
-  {
-    name: "Facebook",
-    url: "https://www.facebook.com",
-    image: images.brand1.src,
-  },
-  {
-    name: "Facebook",
-    url: "https://www.facebook.com",
-    image: images.brand2.src,
-  },
-  {
-    name: "Facebook",
-    url: "https://www.facebook.com",
-    image: images.brand3.src,
-  },
-];
 
 const formatData = (data: ClientData[]): ClientData[][] => {
   const payload: ClientData[][] = [];
@@ -142,7 +21,8 @@ const formatData = (data: ClientData[]): ClientData[][] => {
 };
 
 const Client = () => {
-  const formattedData = formatData(data);
+  const formattedData = formatData(clients);
+  const autoplay = useRef(Autoplay({ delay: 2000 }));
 
   return (
     <Box py={100}>
@@ -152,15 +32,29 @@ const Client = () => {
           text="Collaborating with the best"
           gradientText="clients for mutual success"
         />
-        <Carousel withControls={formattedData.length > 1}>
+        <Carousel
+          withControls={false}
+          plugins={[autoplay.current]}
+          onMouseEnter={autoplay.current.stop}
+          onMouseLeave={autoplay.current.reset}
+        >
           {formattedData.map((item, i) => (
             <Carousel.Slide key={i}>
-              <Grid>
+              <Flex wrap="wrap" align="center" gap="md">
                 {item.map((sItem, sI) => (
-                  <Grid.Col key={sI} span={{ base: 6, sm: 4, md: 3 }}>
+                  <Anchor
+                    style={{
+                      flex: "0 1 calc(25% - 16px)",
+                      maxWidth: "calc(25% - 16px)",
+                    }}
+                    p="md"
+                    href={sItem?.url}
+                    className="!block"
+                    target="_blank"
+                  >
                     <Image
                       w="100%"
-                      h={200}
+                      h={150}
                       src={sItem.image}
                       alt={sItem.name}
                       fit="contain"
@@ -168,9 +62,9 @@ const Client = () => {
                       data-aos="fade-up"
                       data-aos-delay={(sI + 2) * 100}
                     />
-                  </Grid.Col>
+                  </Anchor>
                 ))}
-              </Grid>
+              </Flex>
             </Carousel.Slide>
           ))}
         </Carousel>

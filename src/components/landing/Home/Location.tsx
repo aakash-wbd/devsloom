@@ -47,10 +47,18 @@ const Location = () => {
           <Grid.Col span={{ base: 12, sm: 6 }}>
             <Grid>
               <Grid.Col span={6}>
+                <RenderCard
+                  bg="#BFD5DB"
+                  label="4+"
+                  title="Years"
+                  description="Innovative in Development"
+                />
+              </Grid.Col>
+              <Grid.Col span={6}>
                 <Box h={{ base: 200, xs: 250 }} pos="relative">
                   <Image
-                    w={{ base: 240, xs: 280, lg: 350 }}
-                    h={{ base: 240, xs: 280, lg: 350 }}
+                    w={{ base: 240, xs: 280, lg: 300 }}
+                    h={{ base: 240, xs: 280, lg: 300 }}
                     bottom={-16}
                     fit="contain"
                     pos="absolute"
@@ -59,29 +67,20 @@ const Location = () => {
                   />
                 </Box>
               </Grid.Col>
-
-              <Grid.Col span={6}>
-                <RenderCard
-                  bg="#BFD5DB"
-                  label="17"
-                  title="Years"
-                  description="Innovative in Development"
-                />
-              </Grid.Col>
               <Grid.Col span={6}>
                 <RenderCard
                   bg="#ACCDF4"
-                  label="17"
-                  title="Years"
-                  description="Innovative in Development"
+                  label="30+"
+                  title="Projects"
+                  description="Delivered top-tier solutions"
                 />
               </Grid.Col>
               <Grid.Col span={6}>
                 <RenderCard
                   bg="#C8E38D"
-                  label="17"
-                  title="Years"
-                  description="Innovative in Development"
+                  label="4"
+                  title="Countries"
+                  description="Expanding worldwide presence"
                 />
               </Grid.Col>
             </Grid>

@@ -1,76 +1,14 @@
 "use client";
 
+import { services } from "@/constants/services";
 import { Box, Card, Container, Grid, Group, Text } from "@mantine/core";
-
-const data = [
-  {
-    label: "Web Development",
-    contents: ["Front-End Development", "Back-End Development"],
-    icon: "https://cdn.lordicon.com/tdrtiskw.json",
-  },
-  {
-    label: "Web Development",
-    contents: ["Front-End Development", "Back-End Development"],
-    icon: "https://cdn.lordicon.com/tdrtiskw.json",
-  },
-  {
-    label: "Web Development",
-    contents: ["Front-End Development", "Back-End Development"],
-    icon: "https://cdn.lordicon.com/tdrtiskw.json",
-  },
-  {
-    label: "Web Development",
-    contents: ["Front-End Development", "Back-End Development"],
-    icon: "https://cdn.lordicon.com/tdrtiskw.json",
-  },
-  {
-    label: "Web Development",
-    contents: ["Front-End Development", "Back-End Development"],
-    icon: "https://cdn.lordicon.com/tdrtiskw.json",
-  },
-  {
-    label: "Web Development",
-    contents: ["Front-End Development", "Back-End Development"],
-    icon: "https://cdn.lordicon.com/tdrtiskw.json",
-  },
-  {
-    label: "Web Development",
-    contents: ["Front-End Development", "Back-End Development"],
-    icon: "https://cdn.lordicon.com/tdrtiskw.json",
-  },
-  {
-    label: "Web Development",
-    contents: ["Front-End Development", "Back-End Development"],
-    icon: "https://cdn.lordicon.com/tdrtiskw.json",
-  },
-  {
-    label: "Web Development",
-    contents: ["Front-End Development", "Back-End Development"],
-    icon: "https://cdn.lordicon.com/tdrtiskw.json",
-  },
-  {
-    label: "Web Development",
-    contents: ["Front-End Development", "Back-End Development"],
-    icon: "https://cdn.lordicon.com/tdrtiskw.json",
-  },
-  {
-    label: "Web Development",
-    contents: ["Front-End Development", "Back-End Development"],
-    icon: "https://cdn.lordicon.com/tdrtiskw.json",
-  },
-  {
-    label: "Web Development",
-    contents: ["Front-End Development", "Back-End Development"],
-    icon: "https://cdn.lordicon.com/tdrtiskw.json",
-  },
-];
 
 const Work = () => {
   return (
     <Box py="xl">
       <Container size="xl">
         <Grid gutter={40}>
-          {data?.map((item, i) => (
+          {services?.map((item, i) => (
             <Grid.Col span={{ base: 12, xs: 6 }} key={i}>
               <Card
                 withBorder
@@ -92,12 +30,7 @@ const Work = () => {
                   </Text>
                 </Group>
                 <Text size="sm" ta="justify" c="dimmed">
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Facere totam hic veritatis perspiciatis! Assumenda vel, esse
-                  vero illo natus aspernatur accusamus veniam quaerat corporis.
-                  Fuga repellendus eius iusto praesentium voluptatum deleniti
-                  labore doloribus aperiam sequi cumque, minus accusamus quas
-                  nostrum eaque consectetur molestiae asperiores quia illum
+                  {item?.content?.description}
                 </Text>
               </Card>
             </Grid.Col>

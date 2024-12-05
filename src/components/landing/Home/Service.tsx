@@ -1,70 +1,8 @@
 "use client";
 
 import Heading from "@/components/ui/Heading";
+import { services } from "@/constants/services";
 import { Box, Card, Container, Grid, List, Text, Title } from "@mantine/core";
-
-const data = [
-  {
-    label: "Web Development",
-    contents: ["Front-End Development", "Back-End Development"],
-    icon: "https://cdn.lordicon.com/tdrtiskw.json",
-  },
-  {
-    label: "Web Development",
-    contents: ["Front-End Development", "Back-End Development"],
-    icon: "https://cdn.lordicon.com/tdrtiskw.json",
-  },
-  {
-    label: "Web Development",
-    contents: ["Front-End Development", "Back-End Development"],
-    icon: "https://cdn.lordicon.com/tdrtiskw.json",
-  },
-  {
-    label: "Web Development",
-    contents: ["Front-End Development", "Back-End Development"],
-    icon: "https://cdn.lordicon.com/tdrtiskw.json",
-  },
-  {
-    label: "Web Development",
-    contents: ["Front-End Development", "Back-End Development"],
-    icon: "https://cdn.lordicon.com/tdrtiskw.json",
-  },
-  {
-    label: "Web Development",
-    contents: ["Front-End Development", "Back-End Development"],
-    icon: "https://cdn.lordicon.com/tdrtiskw.json",
-  },
-  {
-    label: "Web Development",
-    contents: ["Front-End Development", "Back-End Development"],
-    icon: "https://cdn.lordicon.com/tdrtiskw.json",
-  },
-  {
-    label: "Web Development",
-    contents: ["Front-End Development", "Back-End Development"],
-    icon: "https://cdn.lordicon.com/tdrtiskw.json",
-  },
-  {
-    label: "Web Development",
-    contents: ["Front-End Development", "Back-End Development"],
-    icon: "https://cdn.lordicon.com/tdrtiskw.json",
-  },
-  {
-    label: "Web Development",
-    contents: ["Front-End Development", "Back-End Development"],
-    icon: "https://cdn.lordicon.com/tdrtiskw.json",
-  },
-  {
-    label: "Web Development",
-    contents: ["Front-End Development", "Back-End Development"],
-    icon: "https://cdn.lordicon.com/tdrtiskw.json",
-  },
-  {
-    label: "Web Development",
-    contents: ["Front-End Development", "Back-End Development"],
-    icon: "https://cdn.lordicon.com/tdrtiskw.json",
-  },
-];
 
 const Service = () => {
   return (
@@ -76,9 +14,10 @@ const Service = () => {
           gradientText="growth and excellence"
         />
         <Grid>
-          {data.map((item, i) => (
+          {services.map((item, i) => (
             <Grid.Col span={{ base: 12, xs: 6, md: 4 }} key={i}>
               <Card
+                mih={220}
                 shadow="md"
                 className="rounded-xl !rounded-tr-sm !rounded-bl-sm group"
                 data-aos="fade-up"
@@ -95,7 +34,7 @@ const Service = () => {
                   {item.label}
                 </Title>
                 <List listStyleType="inherit" withPadding>
-                  {item.contents.map((lItem, lI) => (
+                  {item.content.list.map((lItem, lI) => (
                     <List.Item key={lI} c="dimmed">
                       <Text size="sm">{lItem}</Text>
                     </List.Item>

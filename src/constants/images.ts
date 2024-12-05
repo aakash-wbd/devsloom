@@ -4,15 +4,13 @@ import favicon from '@/assets/favicon.png'
 import animatedLogo from '@/assets/logo_animated.gif'
 import no_data from '@/assets/no_data.svg'
 
-import team1 from '@/assets/team-1.jpg'
-import team2 from '@/assets/team-2.jpg'
+import client1 from '@/assets/client/1.png'
 
-import laptop from '@/assets/laptop.webp'
+import team1 from '@/assets/team/1.jpg'
+
+import laptop from '@/assets/laptop.png'
 import map from '@/assets/map.png'
 
-import brand1 from '@/assets/brand-1.jpg'
-import brand2 from '@/assets/brand-2.png'
-import brand3 from '@/assets/brand-3.jpg'
 
 import Product1 from "@/assets/products/1.png"
 import Product2 from "@/assets/products/2.png"
@@ -28,9 +26,12 @@ export const images = {
     no_data,
     animatedLogo,
     favicon,
+    bulbOn,
+    bulbOff,
 
     team1,
-    team2,
+
+    client1,
 
     map,
     laptop,
@@ -42,12 +43,7 @@ export const images = {
     Product5,
     Product6,
 
-    brand1,
-    brand2,
-    brand3,
-
-    bulbOn,
-    bulbOff,
+ 
 
     serviceBG,
     serviceIcon1,

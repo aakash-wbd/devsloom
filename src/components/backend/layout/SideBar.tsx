@@ -11,11 +11,16 @@ type NavItem = {
 };
 
 const data: NavItem[] = [
-  { label: "Dashboard", path: "/dashboard", icon: "", children: [] },
+  {
+    label: "Dashboard",
+    path: "/dashboard",
+    icon: "mage:dashboard",
+    children: [],
+  },
   {
     label: "Manage",
     path: "",
-    icon: "",
+    icon: "hugeicons:folder-management",
     children: [
       {
         label: "Products",
@@ -30,12 +35,22 @@ const data: NavItem[] = [
       { label: "Blogs", path: "/manage/blogs", icon: "", children: [] },
     ],
   },
-  { label: "Subscribers", path: "/subscribers", icon: "", children: [] },
-  { label: "Query Contacts", path: "/query-contacts", icon: "", children: [] },
+  {
+    label: "Subscribers",
+    path: "/subscribers",
+    icon: "quill:inbox-newsletter",
+    children: [],
+  },
+  {
+    label: "Query Contacts",
+    path: "/query-contacts",
+    icon: "streamline:collaborations-idea-solid",
+    children: [],
+  },
   {
     label: "App Settings",
     path: "",
-    icon: "material-symbols:settings",
+    icon: "solar:settings-outline",
     children: [
       {
         label: "Basic",
@@ -48,6 +63,25 @@ const data: NavItem[] = [
       {
         label: "Mail Config",
         path: "/settings/mail-configuration",
+        icon: "",
+        children: [],
+      },
+    ],
+  },
+  {
+    label: "Administration",
+    path: "",
+    icon: "material-symbols-light:admin-panel-settings-rounded",
+    children: [
+      {
+        label: "Users",
+        path: "/administration/users",
+        icon: "",
+        children: [],
+      },
+      {
+        label: "Role and Permissions",
+        path: "/administration/role-permissions",
         icon: "",
         children: [],
       },
@@ -73,9 +107,19 @@ const SideBar: React.FC<{ onClose: () => void }> = ({ onClose }) => {
               component={Link}
               href={item?.path}
               onClick={onClose}
+              leftSection={
+                item.icon ? <Icon icon={item.icon} fontSize={22} /> : null
+              }
             />
           ) : (
-            <NavLink key={i} label={item.label} childrenOffset={28}>
+            <NavLink
+              key={i}
+              label={item.label}
+              childrenOffset={28}
+              leftSection={
+                item.icon ? <Icon icon={item.icon} fontSize={22} /> : null
+              }
+            >
               {item.children.map((sItem, sI) => (
                 <NavLink
                   key={sI}
