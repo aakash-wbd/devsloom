@@ -51,6 +51,7 @@ const Client = () => {
                     href={sItem?.url}
                     className="!block"
                     target="_blank"
+                    key={sI}
                   >
                     <Image
                       w="100%"

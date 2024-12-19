@@ -150,6 +150,7 @@ const Hero = () => {
                 <img
                   src={images.serviceIcon1.src}
                   className="w-[48px] h-[48px]"
+                  alt="image"
                 />
               </div>
 
@@ -157,6 +158,7 @@ const Hero = () => {
                 <img
                   src={images.serviceIcon1.src}
                   className="w-[48px] h-[48px]"
+                  alt="image"
                 />
               </div>
 
@@ -164,6 +166,7 @@ const Hero = () => {
                 <img
                   src={images.serviceIcon1.src}
                   className="w-[48px] h-[48px]"
+                  alt="image"
                 />
               </div>
 
@@ -171,6 +174,7 @@ const Hero = () => {
                 <img
                   src={images.serviceIcon1.src}
                   className="w-[48px] h-[48px]"
+                  alt="image"
                 />
               </div>
 
@@ -178,6 +182,7 @@ const Hero = () => {
                 <img
                   src={images.serviceIcon1.src}
                   className="w-[48px] h-[48px]"
+                  alt="image"
                 />
               </div>
             </Box>
